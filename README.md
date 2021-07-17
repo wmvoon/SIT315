@@ -1,2 +1,3 @@
 # SIT315
-This repo will consist of modules and submission for SIT315.
+My name is Wei Min Voon who is currently studying SIT315(T2/2021) in Deakin University.
+This repo will have all modules and submissions for SIT315.
