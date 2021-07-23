@@ -54,9 +54,16 @@ void loop()
     
     //check whether the button is pressed or not 
     //if yes, led will turn off when the object is within range 
-    if (!pressed) {
+    if (!pressed) 
+    {
         digitalWrite(LED, ledState);
     }
+  
+  	if (pressed == true)
+  	{
+   	 Serial.println("WARNING:Button has been pressed.");
+     Serial.println("LED OFF. Remember to switch it on.\n");
+  	}
 }
 
 //calcualte distance 
