@@ -39,7 +39,7 @@ void loop()
   Serial.println(" cm");
   
   //if distance is smaller than 100, LED will turn on
-  if (distance >= 100)
+  if (distance <= 100)
   {
     digitalWrite(LED, HIGH);
   } 
