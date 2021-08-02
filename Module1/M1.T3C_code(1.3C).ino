@@ -56,6 +56,8 @@ void loop()
     //else distance is bigger than 100, LED will turn off
     //using Ternary Operator
     ledState = distance <= 100 ? HIGH : LOW;
+    
+    //checking if there is motion detected or not, if there is, turn ON or OFF the light
     digitalWrite(LED2, PIR);  
   
     //check whether the button is pressed or not 
@@ -93,6 +95,7 @@ void off_led() {
     digitalWrite(LED, ledState);
 }
 
+//PIR_triggered function which will turn on the light ON or OFF when motion is detected
 void PIR_triggered(){
   if (PIR == HIGH){
     PIR = !PIR;
