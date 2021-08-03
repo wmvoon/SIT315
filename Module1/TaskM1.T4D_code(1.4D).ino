@@ -144,11 +144,13 @@ void PIR_triggered2(){
     Serial.println("Motion Detected. Setting Light 2 is ON\n");
   }
 }
-  
+
+//this ISR trigger interruptions for the second PIR sensor 
 ISR (PCINT2_vect){
   PIR_triggered2();
 }
 
+//With the settings above, this IRS will trigger each 1000ms
 ISR (TIMER1_COMPA_vect){
 	TCNT1 = 0;
   	timer_LEDstate = !timer_LEDstate;
