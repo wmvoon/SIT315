@@ -37,8 +37,8 @@ void setup()
   	//reseting internal timer and set it to blink every 1000ms (1s)
   	TCCR1A = 0;
   	TCCR1B = 0;
-  	TCCR1B |= B00000100;
-  	TIMSK1 |= B00000010;
+  	TCCR1B |= (1 << CS12);    //using 256 prescaler 
+ 	TIMSK1 |= (1 << OCIE1A); //enable timer compare interrupt
   	OCR1A = 62500; 
    
   	//enabling PCINT 
@@ -144,13 +144,11 @@ void PIR_triggered2(){
     Serial.println("Motion Detected. Setting Light 2 is ON\n");
   }
 }
-
-//this ISR trigger interruptions for the second PIR sensor 
+  
 ISR (PCINT2_vect){
   PIR_triggered2();
 }
 
-//With the settings above, this IRS will trigger each 1000ms
 ISR (TIMER1_COMPA_vect){
 	TCNT1 = 0;
   	timer_LEDstate = !timer_LEDstate;
